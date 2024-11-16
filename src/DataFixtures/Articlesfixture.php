@@ -15,7 +15,7 @@ class Articlesfixture extends Fixture
         $faker = Factory::create();
 
         // Création de plusieurs articles
-        for ($j = 1; $j <= mt_rand(4, 6); $j++) {
+        for ($j = 1; $j <= mt_rand(10, 22); $j++) {
             // Création d'un nouvel article
             $articles = new Articles();
             
@@ -23,7 +23,7 @@ class Articlesfixture extends Fixture
             $articles->setName($faker->word()); // Génère un mot comme nom
             $articles->setPrice($faker->randomFloat(2,10,100)); // Génère un mot comme nom
             $articles->setbrand($faker->company()); // Génère un mot comme nom
-            $articles->setDetail('ceci'); // Génère un mot comme nom
+            $articles->setDetail($faker->randomLetter); // Génère un mot comme nom
             $articles->setImg("https://picsum.photos/id/" . mt_rand(1, 200) . "/275/400");
                     
             // Persistance de l'article

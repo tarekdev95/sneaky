@@ -5,19 +5,19 @@
 {% block body %}
 
     
-<div class="bg-primary text-white text-center py-5 mb-5">
+<div class="bg-primary text-white text-center py-5 mb-5 mt-5">
     <h1>Bienvenu dans notre boutique</h1>
     <p>Votre Meilleur Choix Pour Meilleur Chaussures</p>
-    <div>
-        <a href="{{ path('app_login') }}"> <button class="btn btn-light btn-lg">connexion</button> </a>
-        <a href="{{ path('app_register') }}"> <button class="btn btn-light btn-lg">inscription</button> </a>
+    <div >
+        <a href="{{ path('app_login') }}"> <button class="btn btn-light btn-lg ">connexion</button> </a>
+        <a href="{{ path('app_register') }}"> <button class="btn btn-light btn-lg m-sm-4">inscription</button> </a>
     </div>
 </div>
-<h1 class="text-center mb-4">Liste des Articles</h1>
-<div class="container d-flex justify-content-between  flex-wrap">
-    <div class="row">
 
-        {% for article in articles %}
+<h1 class="text-center mb-4 pt-5">Liste des Articles</h1>
+<div class="container d-flex justify-content-between flex-wrap">
+    <div class="row">
+        {% for article in articles|slice(0, 6) %}
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <img src="{{ article.img }}" class="card-img-top" alt="{{ article.name }}">
@@ -28,7 +28,7 @@
                             <strong>Marque :</strong> {{ article.brand }}<br>
                             {{ article.detail|slice(0, 100) ~ '...' }}
                         </p>
-                        <a href="#" class="btn btn-primary">Voir plus</a>
+                        <a href="#" class="btn btn-outline-success">Voir plus</a>
                     </div>
                 </div>
             </div>
@@ -38,6 +38,12 @@
             </div>
         {% endfor %}
     </div>
+</div>
+
+<!--ligne horizontale  -->
+<hr class="border-primary">
+<div class="text-center">
+    <button class="btn btn-lg btn-info"> voir les produits</button>
 </div>
 
 <div class="container my-5">

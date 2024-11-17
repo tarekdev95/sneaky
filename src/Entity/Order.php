@@ -18,7 +18,7 @@ class Order
 
     #[ORM\ManyToOne(inversedBy: 'myorder')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Users $user_name = null;
+private ?Users $user_name = null;
 
     /**
      * @var Collection<int, articles>

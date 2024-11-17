@@ -8,9 +8,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class MainController extends AbstractController
+class ArticlesController extends AbstractController
 {
-    #[Route('/main', name: 'app_main')]
+    #[Route('/articles', name: 'app_articles')]
     public function index(ArticlesRepository $articlesRepository): Response
     {
        
@@ -18,7 +18,7 @@ class MainController extends AbstractController
         $articles = $articlesRepository->findAll();
         //var_dump($articles);die; 
         // Passage des articles à la vue
-        return $this->render('main/index.html.twig', [
+        return $this->render('articles/index.html.twig', [
             'articles' => $articles,
         ]);
     }

@@ -16,11 +16,17 @@ class MainController extends AbstractController
        
         // Récupération des articles
         $articles = $articlesRepository->findAll();
-        //var_dump($articles);die;
+        //var_dump($articles);die; 
         // Passage des articles à la vue
         return $this->render('main/index.html.twig', [
             'articles' => $articles,
         ]);
+    }
+    
+    #[Route('/articles', name: 'app_articles')]
+    public function article(): Response
+    {
+        return $this->render('main/articles.html.twig');
     }
 
 }
